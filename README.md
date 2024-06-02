@@ -1,4 +1,4 @@
-1. Giới thiệu<br> 
+#Giới thiệu<br> 
 - Dự án cá nhận về Khám phá Dữ liệu (EDA) và trực quan hóa về một nền tảng thương mại điện tử tại Brazil. Dự án cá nhận được xử lý hoàn toàn bằng Power BI.
 
 2. Các kĩ năng được sử dụng
@@ -34,7 +34,8 @@
 - Tập dữ liệu được giải nén, làm sạch và import vào Power BI. Chi tiết các bước xem tại ĐÂY.
 	
 6. Mô hình dữ liệu
-The data to be used for the analysis is Normalised, that is, located in various tables, and thus requires appropriate modelling. The Model from the cleaned data is a Star Schema comprising of: One Fact table: Olist_Order_items, which contains the lowest level of granularity, including quantitative and numeric measures associated with the e-commerce platform which can be aggregated during Analysis.
+- Dữ liệu sau khi được chuẩn hoá được thêm vào lược đồ hình sao (Star schema)
+- Chi tiết các bảng: 
 
 One Factless fact table: Olist_Orders, which contains dates to track sales/purchase events and foreign keys that only reference a dimension but do not have any associated measures that can be aggregated neither is it descriptive. It serves more like a bridge table between the dimensions to establish relationships.
 
