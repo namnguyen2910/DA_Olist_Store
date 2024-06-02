@@ -1,5 +1,5 @@
 1. Giới thiệu<br> 
-Đây là một dự án Khám phá Dữ liệu (EDA) và trực quan hóa về một nền tảng thương mại điện tử tại Brazil được biết đến là Olist. Dự án cá nhận được xử lý hoàn toàn bằng Power BI.
+- Dự án cá nhận về Khám phá Dữ liệu (EDA) và trực quan hóa về một nền tảng thương mại điện tử tại Brazil. Dự án cá nhận được xử lý hoàn toàn bằng Power BI.
 
 4. Các kĩ năng được sử dụng
 - Data Cleaning/Validation in Power Query
