@@ -1,7 +1,7 @@
 1. Giới thiệu<br> 
 - Dự án cá nhận về Khám phá Dữ liệu (EDA) và trực quan hóa về một nền tảng thương mại điện tử tại Brazil. Dự án cá nhận được xử lý hoàn toàn bằng Power BI.
 
-4. Các kĩ năng được sử dụng
+2. Các kĩ năng được sử dụng
 - Data Cleaning/Validation in Power Query
 - Data Modelling
 - Data Visualization
@@ -9,69 +9,31 @@
 - Filters and slicers
 - Drill-through
 
-3. Về bộ dữ liệu <br>
+3. tập dữ liệu của dự án <br>
 - Bộ dữ liệu bao gồm 9 bảng: Olist_customers, Olist_geolocation, Olist_order_items, Olist_order_payments, Olist_order_reviews, Olist_orders, Olist_products, Olist_sellers, Product_category_name.
 - Chi tiết mô tả xem tại [ĐÂY](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/Description_dataset.pdf)
 
 4. Business_question <br>
-a. Tổng quan doanh thu
+4.1 Tổng quan doanh thu
 - Tổng số doanh thu và đơn đặt hàng theo thời gian
 - Các loại sản phẩm được bán nhiều nhất và biến động theo thời gian
-- Loại sản phẩm nào có lợi nhuận gộp cao nhất<br>
-b. Đơn hàng và thanh toán
+- Loại sản phẩm nào có lợi nhuận gộp cao nhất <br>
+4.2 Đơn hàng và thanh toán
 - Giá trị trung bình của đơn hàng theo danh mục sản phẩm 
 - Phương thức thanh toán phổ biến nhất và so sánh theo danh mục sản phẩm hoặc địa lý <br>
-c. Phân tích mối quan hệ
-- Đánh giá mối liên hệ giữa điểm đánh giá sản phẩm trung bình và doanh thu bán hàng 
+4.3. Phân tích mối quan hệ
 - Đánh giá mối liên hệ giữa điểm đánh giá sản phẩm trung bình và hiệu suất bán hàng 
+- Đánh giá mối liên hệ giữa điểm đánh giá sản phẩm trung bình và hiệu suất sản phẩm
 - Đánh giá mối liên hệ giữa tỷ lệ hủy đơn trung bình và hiệu suất của người bán 
-- Đánh giá mối liên hệ giữa điểm đánh giá sản phẩm và tổng doanh thu<br>
-d. Khách hàng và vị trí địa lý
+- Đánh giá mối liên hệ giữa điểm đánh giá sản phẩm trung bình và tổng doanh tu<br>
+4.4. Khách hàng và vị trí địa lý
 - Số lượng khách hàng quay lại mua hàng và tỷ lệ trên tổng doanh thu 
 - Vị trí địa lý có lượng khách hàng lớn và tỷ lệ khách hàng mua lại hàng 
 
-
-
-Tổng doanh thu được tạo ra bởi Olist là bao nhiêu, và nó đã thay đổi như thế nào theo thời gian?
-Có bao nhiêu đơn hàng được đặt trên Olist, và điều này thay đổi như thế nào theo tháng hoặc mùa?
-Các danh mục sản phẩm phổ biến nhất trên Olist là gì, và làm thế nào để so sánh khối lượng bán hàng của chúng với nhau?
-Giá trị trung bình của mỗi đơn đặt hàng (AOV) trên Olist là bao nhiêu, và điều này thay đổi như thế nào theo danh mục sản phẩm hoặc phương thức thanh toán?
-Có bao nhiêu người bán hoạt động trên Olist, và số lượng này thay đổi như thế nào theo thời gian? => SKIP
-Phân phối đánh giá của người bán trên Olist là như thế nào, và điều này ảnh hưởng như thế nào đến hiệu suất bán hàng?
-Có bao nhiêu khách hàng đã mua hàng lặp lại trên Olist, và họ chiếm bao nhiêu phần trăm doanh số tổng cộng?
-Điểm đánh giá trung bình của các sản phẩm được bán trên Olist là bao nhiêu, và điều này ảnh hưởng như thế nào đến hiệu suất bán hàng?
-Tỷ lệ hủy đơn trung bình trên Olist là bao nhiêu, và điều này ảnh hưởng như thế nào đến hiệu suất của người bán?
-Các sản phẩm bán chạy nhất trên Olist là gì, và xu hướng bán hàng của chúng đã thay đổi như thế nào theo thời gian? =>skip
-Phương thức thanh toán nào được sử dụng phổ biến nhất bởi khách hàng Olist, và điều này thay đổi như thế nào theo danh mục sản phẩm hoặc vùng địa lý? 
-Làm thế nào đánh giá và đánh giá của khách hàng ảnh hưởng đến doanh số bán hàng và hiệu suất sản phẩm trên Olist?
-Các danh mục sản phẩm nào có lợi nhuận gộp cao nhất trên Olist, và công ty có thể tăng lợi nhuận qua các danh mục khác nhau như thế nào?
-Chi phí tiếp thị và sự kết hợp kênh của Olist ảnh hưởng như thế nào đến doanh số bán hàng và chi phí thu hút khách hàng, và công ty có thể tối ưu hóa chiến lược tiếp thị của mình để tăng ROI như thế nào?
-Vị trí địa lý có mật độ khách hàng cao. Tính tỷ lệ giữ chân khách hàng theo vị trí địa lý.
-
-Data Transformation in Power Query
-The dataset was extracted and imported into Power BI’s Power Query for data validation and cleaning. To begin the data cleaning process, the column profiling was first changed from ‘based on Top 1000 rows’ to ‘based on entire dataset’. ‘Column quality’, ‘Column profile’ and ‘Column distribution’ checkboxes were then selected to get a summary information about each column in each of the tables for effective validation and transformation where needed. The dataset was cleaned per table. Below is the outlined summary of the transformation process that was carried out:
-
-The "Use First row as header" action was applied to columns where first rows were not headers.
-Column datatypes were validated appropriately.
-Columns that contain currency data such as Price, payment value, etc. were changed to "Fixed decimal" number for consistency.
-Text columns were formatted to be in Proper case were applicable.
-Special characters were standardized accordingly e.g. "são paulo" was replaced with "sao paulo".
-Abbreviated names were replaced with their respective full names for clarity.
-The columns with date and time together were split to extract date part and for ease of date-based analysis.
-Product_category_name table was merged with Olist_products table.
-Duplicates were removed where applicable.
-Redundant/irrelevant columns were removed where applicable.
-The dataset had 8 tables after validation and cleaning. Details of cleaning per table can be found here. Below are snapshots of the transformed tables.
-
-Olist_order_items	Olist_orders
+5. Làm sạch dữ liệu
+- Tập dữ liệu được giải nén, làm sạch và import vào Power BI. Chi tiết các bước xem tại ĐÂY.
 	
-Olist_customers	Olist_Sellers
-	
-Olist_products	Olist_order_payments
-	
-Olist_geolocation	Olist_Order_reviews
-	
-Data Modelling
+6. Mô hình dữ liệu
 The data to be used for the analysis is Normalised, that is, located in various tables, and thus requires appropriate modelling. The Model from the cleaned data is a Star Schema comprising of: One Fact table: Olist_Order_items, which contains the lowest level of granularity, including quantitative and numeric measures associated with the e-commerce platform which can be aggregated during Analysis.
 
 One Factless fact table: Olist_Orders, which contains dates to track sales/purchase events and foreign keys that only reference a dimension but do not have any associated measures that can be aggregated neither is it descriptive. It serves more like a bridge table between the dimensions to establish relationships.
