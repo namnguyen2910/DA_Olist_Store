@@ -1,7 +1,7 @@
 1. Giới thiệu
 Đây là một dự án Khám phá Dữ liệu (EDA) và trực quan hóa về một nền tảng thương mại điện tử tại Brazil được biết đến là Olist. Dự án cá nhận được xử lý hoàn toàn bằng Power BI.
 
-2. Các kĩ năng được sử dụng
+3. Các kĩ năng được sử dụng
 - Data Cleaning/Validation in Power Query
 - Data Modelling
 - Data Visualization
@@ -9,7 +9,7 @@
 - Filters and slicers
 - Drill-through
 
-3. Về bộ dữ liệu 
+3. Về bộ dữ liệu
 Bộ dữ liệu bao gồm 9 bảng: Olist_customers, Olist_geolocation, Olist_order_items, Olist_order_payments, Olist_order_reviews, Olist_orders, Olist_products, Olist_sellers, Product_category_name. Chi tiết xem tại: 
 
 Business Question
