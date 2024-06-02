@@ -9,8 +9,8 @@
 - Filters and slicers
 - Drill-through
 
-3. Về bộ dữ liệu
-Bộ dữ liệu bao gồm 9 bảng: Olist_customers, Olist_geolocation, Olist_order_items, Olist_order_payments, Olist_order_reviews, Olist_orders, Olist_products, Olist_sellers, Product_category_name. Chi tiết xem tại: 
+3. Về bộ dữ liệu <br>
+Bộ dữ liệu bao gồm 9 bảng: Olist_customers, Olist_geolocation, Olist_order_items, Olist_order_payments, Olist_order_reviews, Olist_orders, Olist_products, Olist_sellers, Product_category_name. Chi tiết xem tại: https://github.com/namnguyen2910/DA_Olist_Store/blob/main/Description_dataset.pdf
 
 Business Question
 The following business questions have been presented to enable the Olist team gain better insights into their e-commerce platform and optimize available opportunities for growth. My goal is to present answers to these questions and deliver valuable insights that will evoke business growth for the Olist e-Commerce platform.
