@@ -17,15 +17,15 @@
 a. Tổng quan doanh thu
 - Tổng số doanh thu và đơn đặt hàng theo thời gian
 - Các loại sản phẩm được bán nhiều nhất và biến động theo thời gian
-- Loại sản phẩm nào có lợi nhuận gộp cao nhất.
+- Loại sản phẩm nào có lợi nhuận gộp cao nhất<br>
 b. Đơn hàng và thanh toán
 - Giá trị trung bình của đơn hàng theo danh mục sản phẩm 
-- Phương thức thanh toán phổ biến nhất và so sánh theo danh mục sản phẩm hoặc địa lý
+- Phương thức thanh toán phổ biến nhất và so sánh theo danh mục sản phẩm hoặc địa lý <br>
 c. Phân tích mối quan hệ
 - Đánh giá mối liên hệ giữa điểm đánh giá sản phẩm trung bình và doanh thu bán hàng 
 - Đánh giá mối liên hệ giữa điểm đánh giá sản phẩm trung bình và hiệu suất bán hàng 
 - Đánh giá mối liên hệ giữa tỷ lệ hủy đơn trung bình và hiệu suất của người bán 
-- Đánh giá mối liên hệ giữa điểm đánh giá sản phẩm và tổng doanh thu
+- Đánh giá mối liên hệ giữa điểm đánh giá sản phẩm và tổng doanh thu<br>
 d. Khách hàng và vị trí địa lý
 - Số lượng khách hàng quay lại mua hàng và tỷ lệ trên tổng doanh thu 
 - Vị trí địa lý có lượng khách hàng lớn và tỷ lệ khách hàng mua lại hàng 
