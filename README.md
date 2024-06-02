@@ -1,4 +1,4 @@
-#Giới thiệu<br> 
+1. Giới thiệu<br> 
 - Dự án cá nhận về Khám phá Dữ liệu (EDA) và trực quan hóa về một nền tảng thương mại điện tử tại Brazil. Dự án cá nhận được xử lý hoàn toàn bằng Power BI.
 
 2. Các kĩ năng được sử dụng
@@ -34,37 +34,14 @@
 - Tập dữ liệu được giải nén, làm sạch và import vào Power BI. Chi tiết các bước xem tại ĐÂY.
 	
 6. Mô hình dữ liệu
-- Dữ liệu sau khi được chuẩn hoá được thêm vào lược đồ hình sao (Star schema)
-- Chi tiết các bảng: 
+- Dữ liệu sau khi được chuẩn hoá được thêm vào lược đồ hình sao (Star schema). Xem chi tiết ở hình ảnh dưới
+- Chi tiết các bảng:
+ - Fact table: Olist_Order_items: Chứa các số liệu định lượng cho đơn hàng
+ - Factless table: Olist_Orders : Chứa ngày để theo dõi trạng thái bán hàng/mua hàng và không có bất kỳ số liệu
+ - Dimesion table: list_customers, Olist_geolocation, Olist_order_payments, Olist_order_reviews, Olist_products, Olist_sellers, Date_Table (bảng mới được tạo)
 
-One Factless fact table: Olist_Orders, which contains dates to track sales/purchase events and foreign keys that only reference a dimension but do not have any associated measures that can be aggregated neither is it descriptive. It serves more like a bridge table between the dimensions to establish relationships.
+![Ảnh] https://github.com/Analyst-Joan/Olist_Store_Exploratory_Data_Analysis/blob/main/Prod_rate_sales_perf.PNG
 
-Six dimension tables: Olist_customers, Olist_geolocation, Olist_order_payments, Olist_order_reviews, Olist_products, Olist_sellers . These contains attributes that describe the data on the fact tables and are to be used to constrain/filter queries on the fact tables (i.e. to limit inquiries to the primary data)
-
-A date dimension table **"DimDate"** was then created in power query using M Query language gotten from online research, which I adjusted to include Fiscal year, Fiscal Month and fiscal Quarter.
-
-Date_Table	
-	
-This was created to have a comprehensive view of the date data, enable flexibility of time-based analysis, and creating hierarchical relationship at different levels of granularity (such as day, week, month, etc.), which facilitates drill-down capabilities in visualization.
-
-The 7 dimension tables were then modelled/connected to the fact tables using Primary and foreign keys, that is, the common columns between them.
-
-Olist_order_items table was modelled with:
-
-olist_orders table using "order_id"
-olist_sellers table using "seller_id"
-olist_product table using "product_id"
-Olist_orders table was connected to:
-
-olist_customers table using "customer_id"
-olist_order_payment table using "order_id"
-olist_order_reviews table using "order_id"
-DimDate table Using "Date/ order_purchase_date"
-(Olist_geolocation Table was connected to the olist_customers table via the Zip_code_prefix)
-
-
-
-The relationships between the tables are mainly one-to-many/many-to-one, except for the one between the customer and order table, which is a one-to-one relationship.
 
 Data Exploration and Visualization in Power BI
 This was done using DAX Concepts (Calculated Measures, Calculated Columns, etc.), Visuals/Charts, Drill-throughs, Filters and slicers, etc. in Power BI.
