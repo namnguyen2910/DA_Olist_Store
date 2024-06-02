@@ -14,21 +14,21 @@
 - Chi tiết mô tả xem tại [ĐÂY](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/Description_dataset.pdf)
 
 4. Business_question <br>
-4.1 Tổng quan doanh thu
-- Tổng số doanh thu và đơn đặt hàng theo thời gian
-- Các loại sản phẩm được bán nhiều nhất và biến động theo thời gian
-- Loại sản phẩm nào có lợi nhuận gộp cao nhất <br>
-4.2 Đơn hàng và thanh toán
-- Giá trị trung bình của đơn hàng theo danh mục sản phẩm 
-- Phương thức thanh toán phổ biến nhất và so sánh theo danh mục sản phẩm hoặc địa lý <br>
-4.3. Phân tích mối quan hệ
-- Đánh giá mối liên hệ giữa điểm đánh giá sản phẩm trung bình và hiệu suất bán hàng 
-- Đánh giá mối liên hệ giữa điểm đánh giá sản phẩm trung bình và hiệu suất sản phẩm
-- Đánh giá mối liên hệ giữa tỷ lệ hủy đơn trung bình và hiệu suất của người bán 
-- Đánh giá mối liên hệ giữa điểm đánh giá sản phẩm trung bình và tổng doanh tu<br>
-4.4. Khách hàng và vị trí địa lý
-- Số lượng khách hàng quay lại mua hàng và tỷ lệ trên tổng doanh thu 
-- Vị trí địa lý có lượng khách hàng lớn và tỷ lệ khách hàng mua lại hàng 
+- Tổng quan doanh thu
+  - Tổng số doanh thu và đơn đặt hàng theo thời gian
+  - Các loại sản phẩm được bán nhiều nhất và biến động theo thời gian
+  - Loại sản phẩm nào có lợi nhuận gộp cao nhất <br>
+- Đơn hàng và thanh toán
+  - Giá trị trung bình của đơn hàng theo danh mục sản phẩm 
+  - Phương thức thanh toán phổ biến nhất và so sánh theo danh mục sản phẩm hoặc địa lý <br>
+- Phân tích mối quan hệ
+  - Đánh giá mối liên hệ giữa điểm đánh giá sản phẩm trung bình và hiệu suất bán hàng 
+  - Đánh giá mối liên hệ giữa điểm đánh giá sản phẩm trung bình và hiệu suất sản phẩm
+  - Đánh giá mối liên hệ giữa tỷ lệ hủy đơn trung bình và hiệu suất của người bán 
+  - Đánh giá mối liên hệ giữa điểm đánh giá sản phẩm trung bình và tổng doanh tu<br>
+- Khách hàng và vị trí địa lý
+  - Số lượng khách hàng quay lại mua hàng và tỷ lệ trên tổng doanh thu 
+  - Vị trí địa lý có lượng khách hàng lớn và tỷ lệ khách hàng mua lại hàng 
 
 5. Làm sạch dữ liệu
 - Tập dữ liệu được giải nén, làm sạch và import vào Power BI. Chi tiết các bước xem tại ĐÂY.
