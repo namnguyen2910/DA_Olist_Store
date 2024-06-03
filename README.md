@@ -42,7 +42,7 @@
 
 ![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/Data%20Model.png)
 
-7. Phân tích dữ liệu với Power BI
+7. Phân tích dữ liệu với Power BI <br>
 Q1.Tổng số doanh thu và đơn đặt hàng theo thời gian
 ```
 Total Revenue = 
