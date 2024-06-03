@@ -1,5 +1,5 @@
 1. Giới thiệu<br> 
-- Dự án cá nhận về Khám phá Dữ liệu (EDA) và trực quan hóa về một nền tảng thương mại điện tử tại Brazil. Dự án cá nhận được xử lý hoàn toàn bằng Power BI.
+- Dự án cá nhân về Khám phá Dữ liệu (EDA) và trực quan hóa về một nền tảng thương mại điện tử tại Brazil. Dự án cá nhân được xử lý hoàn toàn bằng Power BI.
 
 2. Các kĩ năng được sử dụng
 - Data Cleaning/Validation in Power Query
