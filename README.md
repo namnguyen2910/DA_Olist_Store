@@ -101,12 +101,14 @@ Average Order Value =
   - Credit Card và Bolero đều được sử dụng để mua 72 danh mục sản phẩm.
   - Các bang sử dụng phương thức Credit Card để mua hàng nhiều nhất là Minas Gerais, Rio de Janeiro, và Sao Paulo. Điều này phản ánh sự phổ biến của hình thức thanh toán này ở các vùng đô thị lớn của Brazil.
 
-*Q6. Đánh giá mối liên hệ giữa điểm đánh giá sản phẩm trung bình và hiệu suất bán hàng 
-- Để đánh giá được hiệu suất bán hàng, sử dụng tổng doanh thu của seller và rating của seller. Công thức DAX tính rating của seller:
+*Q6. Đánh giá mối liên hệ giữa điểm đánh giá trung bình của người bán và hiệu suất bán hàng 
+- Để đánh giá được hiệu suất bán hàng, sử dụng tổng doanh thu của người bán và rating của người bán. Công thức DAX tính rating của người bán:
 ```
 Average Rating = AVERAGE('olist_order_reviews_dataset'[review_score])
 ```
-![Ảnh]([https://github.com/namnguyen2910/DA_Olist_Store](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/seller%20rating%20-%20sale%20performance.png))
+![Ảnh]([https://github.com/namnguyen2910/DA_Olist_Store](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/seller%20rating%20-%20sale%20performance.png)
+- Kết quả cho thấy rằng những người bán có đánh giá cao có xu hướng đạt được kết quả bán hàng cao hơn so với những người có đánh giá thấp hơn, với người bán hàng có hiệu suất cao nhất có đánh giá trung bình là 4,12.
+  
 
 6: What is the distribution of seller ratings on Olist, and how does this impact sales performance?
 Now we know how many of the Olist sellers are active, we will now evaluate how customers rate them and the impact on their performance. To do this, I created a calculated measure to get the Average customer rating from the review scores. The DAX measure is shown below:
