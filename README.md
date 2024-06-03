@@ -27,7 +27,7 @@
   - Đánh giá mối liên hệ giữa tỷ lệ hủy đơn trung bình và hiệu suất của người bán 
   - Đánh giá mối liên hệ giữa điểm đánh giá sản phẩm trung bình và tổng doanh tu<br>
 - Khách hàng và vị trí địa lý
-  - Số lượng khách hàng quay lại mua hàng và tỷ lệ trên tổng doanh thu 
+ 
   - Vị trí địa lý có lượng khách hàng lớn và tỷ lệ khách hàng mua lại hàng 
 
 5. Làm sạch dữ liệu
@@ -44,7 +44,7 @@
 
 7. Phân tích dữ liệu với Power BI <br>
 
-**Q1. Tổng số doanh thu và đơn đặt hàng theo thời gian
+*Q1. Tổng số doanh thu và đơn đặt hàng theo thời gian
 ```
 Total Revenue = 
 CALCULATE(
@@ -62,11 +62,11 @@ Total Orders = COUNT(olist_orders_dataset[order_id])
 - Số lượng đơn hàng đã giao thành công là 96.478 trên tổng số 99.941 đơn hàng đã được đặt. Tương tự như doanh thu bán hàng, ngày 24/11/2017 cũng có số lượng đơn đặt hàng cao nhất.
 ![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/Total_order_by_time.png)
 
-**Q2. Các danh mục sản phẩm được bán chạy nhất theo số lượng và doanh thu
+*Q2. Các danh mục sản phẩm được bán chạy nhất theo số lượng và doanh thu
 - Phân tích mức độ về mức độ phổ biến theo top 20, danh mục sản phẩm được ưa chuộng nhất là Bed_Bath_Table có 9.417 đơn đặt hàng, tiếp theo Health_Beauty (8.836) và Sports_Leisure (7.720). Tuy nhiên Health_Beauty có doanh thu bán hàng cao nhất là R$1.419.509,89, tiếp theo là Watches_Gifts category (R$1,269,684.96) và Bed_Bath_Table (R$1,249,411.56). Điều này chứng tỏ sản phẩm được bán chạy nhất không đồng nghĩa với mang lại doanh thu lớn nhất
 ![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/Product_popularity.png)
 
-**Q3. Danh mục sản phẩm có lợi nhuận gộp cao nhất <br>
+*Q3. Danh mục sản phẩm có lợi nhuận gộp cao nhất <br>
 - Vì tập dữ liệu có sẵn không có giá vốn, do đó chúng ta không thể tính toán biên lợi nhuận, chỉ có thể kiểm tra biên lợi nhuận gộp. Công thức DAX tính toán biên lợi nhuận gộp:
 ```
 Gross_Profit_Margin = DIVIDE(
@@ -77,7 +77,7 @@ Gross_Profit_Margin = DIVIDE(
 - Sản phẩm có biên độ lợi nhuận gộp cao nhất là Computers với 95.71%, tiếp the là Small_Appliances_Home_Oven_And_Coffee (94.56%), Portable_kitchen_and_food_preparators (93.04%).
   ![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/Profit_margin.png)
 
-**Q4. Đánh giá mối liên hệ giữa giá trị trung bình của đơn hàng theo danh mục sản phẩm và phương thức thanh toán <br>
+*Q4. Đánh giá mối liên hệ giữa giá trị trung bình của đơn hàng theo danh mục sản phẩm và phương thức thanh toán <br>
 - Từ Q2 ta thấy không phải sản phẩm phổ biến nhất sẽ mang lại doanh thu cao nhất, chúng ta sẽ đi sâu hơn bằng cách đánh giá qua giá trị trung bình (AOV) của đơn hàng và mối liên hệ của AOV với danh mục sản phẩm cũng như là phương thức thanh toán. Công thức DAX tính toán AOV:
 
 ```
@@ -90,7 +90,7 @@ Average Order Value =
 ![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/AOV.png)
 - Giá trị đơn hàng trung bình là R$159.85. Xét theo các danh mục sản phẩm và loại thanh toán, chúng ta thấy rằng danh mục sản phẩm có giá trị đơn hàng trung bình cao nhất là Computers, trong khi Credit card là loại thanh toán có giá trị đơn hàng trung bình cao nhất. Điều này phản ánh sự ưa thích và sự tin tưởng của khách hàng vào những loại sản phẩm và phương thức thanh toán này, hoặc có thể là kết quả của các chính sách giảm giá, ưu đãi đặc biệt hoặc khuyến mãi đối với những mặt hàng hoặc phương thức thanh toán này.
   
-**Q5. Đánh giá mối liên hệ giữa phương thức thanh toán và danh mục sản phẩm/địa lý <br>
+*Q5. Đánh giá mối liên hệ giữa phương thức thanh toán và danh mục sản phẩm/địa lý <br>
 - Tử Q4 ta thấy phương thức thanh toán Credit Card là loại thanh toán có giá trị đơn hàng trung bình cao nhất. Vậy liệu phương thức thanh toán này có phổ biến với toàn bộ các đơn hàng không?
 
 ![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/Payment_popularity.png)
@@ -101,7 +101,12 @@ Average Order Value =
   - Credit Card và Bolero đều được sử dụng để mua 72 danh mục sản phẩm.
   - Các bang sử dụng phương thức Credit Card để mua hàng nhiều nhất là Minas Gerais, Rio de Janeiro, và Sao Paulo. Điều này phản ánh sự phổ biến của hình thức thanh toán này ở các vùng đô thị lớn của Brazil.
 
-
+*Q6. Đánh giá mối liên hệ giữa điểm đánh giá sản phẩm trung bình và hiệu suất bán hàng 
+- Để đánh giá được hiệu suất bán hàng, sử dụng tổng doanh thu của seller và rating của seller. Công thức DAX tính rating của seller:
+```
+Average Rating = AVERAGE('olist_order_reviews_dataset'[review_score])
+```
+![Ảnh]([https://github.com/namnguyen2910/DA_Olist_Store](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/seller%20rating%20-%20sale%20performance.png))
 
 6: What is the distribution of seller ratings on Olist, and how does this impact sales performance?
 Now we know how many of the Olist sellers are active, we will now evaluate how customers rate them and the impact on their performance. To do this, I created a calculated measure to get the Average customer rating from the review scores. The DAX measure is shown below:
