@@ -65,8 +65,17 @@ Q2: Các loại sản phẩm được bán chạy nhất theo số lượng và 
 - Phân tích mức độ về mức độ phổ biến theo top 20, loại sản phẩm được ưa chuộng nhất là Bed_Bath_Table có 9.417 đơn đặt hàng, tiếp theo Health_Beauty (8.836) và Sports_Leisure (7.720). Tuy nhiên Health_Beauty có doanh thu bán hàng cao nhất là R$1.419.509,89, tiếp theo làWatches_Gifts category (R$1,269,684.96) and Bed_Bath_Table (R$1,249,411.56). Điều này chứng tỏ sản phẩm được bán chạy nhất không đồng nghĩa với mang lại doanh thu lớn nhất
 ![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/Product_popularity.png)
 
-Tuy nhiên, xét về doanh số bán hàng, danh mục sản phẩm Health_Beauty có doanh số bán hàng cao nhất là 1.419.509,89 R$, tiếp theo là danh mục Đồng hồ_Quà tặng (1.269.684,96 R$) và Bed_Bath_Table (1.249.411,56 R$) đứng thứ 3 về doanh số cao nhất.
-
+Q3.  Loại sản phẩm nào có lợi nhuận gộp cao nhất <br>
+- Vì tập dữ liệu có sẵn không có giá vốn, do đó chúng ta không thể tính toán biên lợi nhuận, chỉ có thể kiểm tra biên lợi nhuận gộp. Công thức DAX dưới đây được sử dụng để tính toán biên lợi nhuận gộp.
+```
+Gross_Profit_Margin = DIVIDE(
+                         CALCULATE(SUM('olist_order_items'[price]),
+                            olist_orders[order_status]="delivered"),
+                               [Total Revenue])
+```
+- Sản phẩm có biên độ lợi nhuận gộp cao nhất là Computers với 95.71%, tiếp the là Small_Appliances_Home_Oven_And_Coffee (94.56%), Portable_kitchen_and_food_preparators (93.04%).
+  ![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/Profit_margin.png)
+- 
 3: What are the most popular product categories on Olist, and how do their sales volumes
 compare to each other? Having observed the trend in customer orders and revenue generated, it is important to consider the products advertised on the Olist platform for sale – Which of these product categories are popular? Does popularity affect their sales volume? In terms of popularity, the most popular product category is the Bed_Bath_Table having 9,417 orders, with the next two in the top 3 popular product categories being Health_Beauty (8,836 orders) and Sports_Leisure (7,720 orders).
 
