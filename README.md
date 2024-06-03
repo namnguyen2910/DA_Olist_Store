@@ -14,7 +14,6 @@
 - Chi tiết mô tả xem tại [ĐÂY](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/Description_dataset.pdf)
 
 4. Business_question <br>
-- Tổng quan doanh thu
   - Tổng số doanh thu và đơn đặt hàng theo thời gian
   - Các danh mục sản phẩm được bán chạy nhất theo số lượng và doanh thu
   - Danh mục sản phẩm có lợi nhuận gộp cao nhất <br>
@@ -27,7 +26,7 @@
   - Vị trí địa lý có lượng khách hàng lớn và tỷ lệ khách hàng mua lại hàng 
 
 5. Làm sạch dữ liệu
-- Tập dữ liệu được giải nén, làm sạch và import vào Power BI. Bao gồm:
+  - Tập dữ liệu được giải nén, làm sạch và import vào Power BI. Bao gồm:
   - Xoá bỏ các bản ghi được trùng lặp, xoá bỏ các khoảng trắng ở các trường.
   - Sửa tên In hoa cho các địa danh, merge bảng viết tắt các state
   - Chuyển đổi các định dạng phù hợp với dữ liệu.
