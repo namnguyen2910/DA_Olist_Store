@@ -20,15 +20,12 @@
   - Danh mục sản phẩm có lợi nhuận gộp cao nhất <br>
 - Đơn hàng và thanh toán
   - Giá trị trung bình của đơn hàng theo danh mục sản phẩm 
-  - Đánh giá mối liên hệ giữa phương thức thanh toán và danh mục sản phẩm/địa lý <br>
+  - Mối liên hệ giữa phương thức thanh toán và danh mục sản phẩm/địa lý <br>
 - Phân tích mối quan hệ
-  - Đánh giá mối liên hệ giữa điểm đánh giá sản phẩm trung bình và hiệu suất bán hàng
+  - Mối liên hệ giữa điểm đánh giá người bán trung bình và hiệu suất bán hàng
   - Mối liên hệ giữa tỷ lệ mua lại hàng và tổng doanh thu
-  - Đánh giá mối liên hệ giữa điểm đánh giá sản phẩm trung bình và hiệu suất sản phẩm
-  - Đánh giá mối liên hệ giữa tỷ lệ hủy đơn trung bình và hiệu suất của người bán 
-  - Đánh giá mối liên hệ giữa điểm đánh giá sản phẩm trung bình và tổng doanh tu<br>
-- Khách hàng và vị trí địa lý
- 
+  - Mối liên hệ giữa điểm đánh giá sản phẩm trung bình và hiệu suất bán hàng
+  - Mối liên hệ giữa điểm đánh giá sản phẩm và doanh thu tương ứng
   - Vị trí địa lý có lượng khách hàng lớn và tỷ lệ khách hàng mua lại hàng 
 
 5. Làm sạch dữ liệu
@@ -39,7 +36,7 @@
 - Chi tiết các bảng:
   - Fact table: Olist_Order_items: Chứa các số liệu định lượng cho đơn hàng
   - Factless table: Olist_Orders : Chứa ngày để theo dõi trạng thái bán hàng/mua hàng và không có bất kỳ số liệu
-  - Dimesion table: list_customers, Olist_geolocation, Olist_order_payments, Olist_order_reviews, Olist_products, Olist_sellers, Date_Table (bảng mới được tạo)
+  - Dimesion table: list_customers, Olist_geolocation, Olist_order_payments, Olist_order_reviews, Olist_products, Olist_sellers, Dimdate (bảng mới được tạo)
 
 ![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/Data%20Model.png)
 
@@ -107,12 +104,11 @@ Average Order Value =
 ```
 Average Rating = AVERAGE('olist_order_reviews_dataset'[review_score])
 ```
-![Ảnh]([https://github.com/namnguyen2910/DA_Olist_Store](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/seller%20rating%20-%20sale%20performance.png)
+![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/seller%20rating%20-%20sale%20performance.png)
 - Kết quả cho thấy rằng những người bán có đánh giá cao có xu hướng đạt được kết quả bán hàng cao hơn so với những người có đánh giá thấp hơn, với người bán hàng có hiệu suất cao nhất có đánh giá trung bình là 4,12.
 
 *Q7. Mối liên hệ giữa tỷ lệ mua lại hàng và tổng doanh thu
 - Từ Q6 ta thấy được có trên 50% tỷ lệ người bán được đánh giá khá cao. Vậy tỷ lệ người mua lại hàng chiếm bao nhiêu % và đóng góp vào tổng doanh thu là bao nhiêu? Trước hết tạo ra 1 cột để lọc các đơn hàng được tính là đơn hàng mua lại:
-
 ```
 Repeat_Purchases = CALCULATE(
                       IF(COUNT('olist_orders_dataset'[order_id])>1,1,0),
@@ -128,118 +124,28 @@ Repeat Purchase Customers = CALCULATE(
 ![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/Repeat%20Purchase.png)
 - Tỷ lệ mua hàng trở lại ~5.84% (R$900,727.35).
 
+*Q8. Mối liên hệ giữa điểm đánh giá sản phẩm trung bình và hiệu suất bán hàng
+- Từ Q7 ta thấy được tỷ lệ người mua hàng trở lại không cao, vậy có phải do chất lượng sản phẩm không tốt? Bằng cách lọc ra các sản phẩm không có review score, Công thức DAX dưới đây sẽ tính được rating của sản phẩm:
+```
+ProductRating = 
+AVERAGEX(
+    FILTER(
+        RELATEDTABLE('olist_order_reviews_dataset'),
+        'olist_order_reviews_dataset'[review_score] <> BLANK()
+    ),
+    'olist_order_reviews_dataset'[review_score]
+)
+```
+![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/product%20rating%20-%20sale%20performance.png)
+- Điểm trung bình sản phẩm là 4.07, và sản phẩm đạt doanh thu lớn nhất có điểm là 4.21. Với điểm đánh giá cao, sản phẩm có khả năng thu hút và giữ chân khách hàng tốt hơn từ đó làm tăng doanh thu bán hàng.
 
-7: How many customers have made repeat purchases on Olist, and what percentage of total sales do they account for?
-Based on the previous visual, we observed that more than 50% sellers were rated fairly high. We now want to see if the seeming satisfaction led to repeat purchases by the customers. To determine this, I created a calculated column to filter out orders that are repeat purchases based on the customers’ unique id. The DAX formula below was used to create the column:
-
-Repeat_Purchases = CALCULATE(
-                      IF(COUNT('olist_orders'[order_id])>1,1,0),
-                          ALLEXCEPT(olist_customers,olist_customers[customer_unique_id]))
-The formula calculates whether a customer has made more than one purchase or not by checking if the count of 'order_id' in the olist_orders table is greater than 1. If it is, it returns 1, indicating that the customer has made repeat purchases. Otherwise, it returns 0, indicating that the customer has made only one purchase. Afterwards I created a calculated measure to get the total count of customers that had repeat purchases i.e. customers whose count of 'order_id' in the olist_orders table returned 1. The DAX measure is shown below:
-
-Repeat Purchase Customers = CALCULATE( 
-                                DISTINCTCOUNT(olist_customers[customer_unique_id]),
-                                   olist_customers[Repeat_Purchases] = 1,
-                                       olist_orders[order_status] = "Delivered")
-The measure calculates the distinct count of customers who have made repeat purchases and have their order status as ‘delivered’. Delivered orders alone were taken into account, as they represent true repeat purchases. Our computation output shows that 2,979 customers made repeat purchases.
-
-
-
-Let’s now find out the impact of this repeat purchases on the Total revenue.
-
-
-
-Based on the visual above we can see that repeat purchases accounted for 5.84% (R$900,727.35) of the total revenue.
-
-8: What is the average customer rating for products sold on Olist, and how does this impact sales performance?
-From the exploration so far, we see that less than 5% of the customers made repeat purchase. To ascertain the possible cause of this behaviour, let’s evaluate the impact of customer ratings for the products on the sales performance. Average rating was computed to be 4.07, which is a good rating on a scale of 1 to 5.
+*Q8. Mối liên hệ giữa điểm đánh giá sản phẩm và doanh thu tương ứng
+- Từ Q6/Q8, ta thấy sản phẩm/người bán có doanh thu cao nhất đèu có điểm trung bình >4. Vậy có phải điểm trung bình cao đồng nghĩa với doanh thu cao không?
+  ![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/customer%20rating%20-%20order%20-%20revenue.png)
+- Biểu đồ cho ta thấy được  các sản phẩm có điểm đánh giá là 2.0 có doanh thu ít hơn so với các sản phẩm có điểm đánh giá là 1.0. Mặt khác số lượng sản phẩm bán ra có điểm đánh giá 1.0 nhiều hơn khoảng 3 lần so với số lượng sản phẩm có điểm đánh giá 2.0. Do đó, chúng ta có thể nói rằng khi điểm đánh giá tăng, tổng doanh thu cũng tăng.
 
 
 
-How does this impact the sales performance?
-
-
-
-Based on the resulting visual shown above, the product with the highest sales amount has a rating of 4.21, which is above the overall average rating.
-
-9: What is the average order cancellation rate on Olist, and how does this impact seller performance?
-As we continue to evaluate Olist customers’ behaviour, from repeat purchases to ratings for sellers/products, we will now look into cancelled orders, to understand its effect on the performance of sellers/merchants on the Olist platform. It will also be important to know factors that can influence these order cancellations and seller performance. To explore this stage, I computed the average order cancellation rate using the measure below and its result gave 0.63%.
-
-Average Order Cancellation Rate = 
-                                 DIVIDE(
-                                    CALCULATE(COUNTROWS(olist_orders),
-    	                                  olist_orders[order_status] = "canceled"),
-                                          COUNTROWS(olist_orders))
-
-
-I then evaluated average order cancellation rate for the sellers based on Minimum price of product, Total revenue, average rating, and number of orders. I leveraged AI feature of Power BI for this by using the Key Influencers visual. Based on the visual below, we can opine that as average rating decreases, average order cancellation rate increases and vice versa. Similarly, as minimum price of a seller decreases, it becomes probable that the average order cancellation rate will decrease and vice versa.
-
-
-
-Furthermore, an increase in average order cancellation rate, results in decrease in number of orders sold and Total revenue, while a decrease in average order cancellation rate, gives rise to an increase in number of orders sold and Total revenue.
-
-
-
-There is therefore need to mitigate the factors that may likely increase average order cancellation rate.
-
-10: What are the top-selling products on Olist, and how have their sales trends changed over time?
-Having understood some aspect of Olist customers’ behaviour, let’s explore the products that are advertised on the platform for sale. I’ll be looking at the top 10 selling products and their sales trend over time. Using the decomposition tree visual below, I checked the product categories over the years in terms of their sales (total revenue).
-
-
-
-From the visual above, we can see that across the years, no product category remained the topmost selling product – In 2016, it was Furniture_Decor, in 2017 – Bed_Bath_Table took the lead, and in 2018, Health_Beauty became the topmost category. However, we also observed that the Health_Beauty category was constantly among the top 3 selling product categories across the 3year period in view.
-
-11: Which payment methods are most commonly used by Olist customers, and how does this vary by product category or geographic region?
-We will now move on to evaluate how customers make payments for the purchased products.
-
-
-
-From the visual above we see that most common payment method is the Use of Credit card and the least method is the use of debit card. Exploring further across the locations and products in the visual below, we see the same pattern of the most used payment method being Credit card, followed by Boleto. However, we also observed that both Credit card and Boleto were used within all the 72 product categories.
-
-
-
-12: How do customer reviews and ratings affect sales and product performance on Olist?
-Based on response to similar questions, Q6 and Q8, we have seen that sellers and products with the highest revenue/sales performance have ratings above average (4.07).
-
-
-
-Exploring further, we observe from the visual above, that products with average review score of “2.0” had lesser revenue than products with average review score of “1.0”. This can be due to the quantity of the products sold that fell within the 1.0 rating, which is about 3 times that of the ones within the 2.0 rating. Hence, we can say that as rating/review score increases, the total revenue increases.
-
-13: Which product categories have the highest profit margins on Olist, and how can the company increase profitability across different categories?
-Olist is not a non-profit organisation, hence it is important to know products that are more profitable for the business. We get this by evaluating the profit margin on the platform across the categories. To calculate the profit margin, we need to get the net profit by subtracting the cost price from the selling price(price), divide by the total revenue and multiply by 100 (percent). The data available does not capture the cost price, hence we are only able to check for the gross profit margin. The DAX measure below was used to calculate the gross profit margin.
-
-Gross_Profit_Margin = DIVIDE(
-                         CALCULATE(SUM('olist_order_items'[price]),
-                            olist_orders[order_status]="delivered"),
-                               [Total Revenue])
-The resulting Gross Profit Margin computed is 85.73%.
-
-
-
-Exploring across the categories, we observe that the product category with the highest gross profit margin is "Computers" with 95.71%, followed by the “Small_Appliances_Home_Oven_And_Coffee" category (94.56%), and then “Portable_kitchen_and_food_preparators" category (93.04%). Visual is shown below.
-
-
-
-To increase profitability across different categories, Olist platform can Collaborate/Strengthen relationships with sellers and negotiate better terms such as bulk discounts, exclusive deals, etc. They can also work with the sellers to improve their pricing strategy, ensuring that the pricing of their products are competitive, but not so low as to lose revenue. They may also consider using tiered pricing, where different prices are charged for the same product depending on the quantity or other factors.
-
-Secondly, they can use strategies that encourage customers to purchase additional products or upgrade their purchases by implementing cross-selling and upselling techniques. To do this, they can leverage Artificial intelligence (AI) technology and data analytics to offer personalized recommendations on the platform based on customer preferences and buying patterns. This can increase the average order value and contribute to higher profitability. As we can see from our analysis that the category with the highest profit margin also had the highest Average order value.
-
-
-
-Additionally, they can consider phasing out or re-evaluating low-margin products that are not contributing significantly to profitability.
-
-14: How does Olist's marketing spend and channel mix impact sales and customer acquisition costs, and how can the company optimize its marketing strategy to increase ROI?
-Marketing Spend refers to the amount of money allocated to marketing activities, which directly influences the reach and impact of Olist's promotional efforts.
-
-Channel mix, on the other hand, refers to the distribution of marketing efforts across different mediums/channels such as social media, email marketing, Partnership with Influencers, etc. The more diverse the channels mix, the more likely it will be to reach wider audience and potential leads that can be converted to customers. This will definitely have impact on the sales outcome.
-
-Therefore, Increasing marketing spend by having sufficient allocation of funds to diverse channel mix can potentially increase brand visibility, encourage new customer acquisition, and ultimately drive sales. However, it is pertinent that the business prioritizes channels with high leads conversion rates, while striking a balance between the marketing budget and the return on investment (ROI) generated.
-
-On Customer Acquisition Costs (CAC), which is the expenses incurred in acquiring a new customer, Olist can evaluate the cost-effectiveness of each acquisition channel by assessing the cost per lead, cost per customer, and customer lifetime value (CLTV) to determine the efficiency of marketing efforts. If the CAC is too high, adjustments can be made to optimize the strategy and reduce acquisition costs.
-
-To optimize its marketing strategy and increase ROI, Olist can consider leveraging data analytics to gain insights into customer behavior, preferences, and purchasing patterns. Such data-driven decision making will enable Olist to identify high-performing channels, adjust the channel mix where applicable, and optimize resource allocation.
-
-Secondly, Olist can implement targeted marketing campaigns, where customer demographics, interests, and buying habits are analysed, and then, the messaging and promotional offers are tailored to meet specific customer segments. This can improve customer engagement, increase conversion of leads to Customer, and boost sales.
 
 15: Geolocation having high customer density. Calculate customer retention rate according to geolocations
 Finally, we will evaluate the spread of Olist customer base in terms of location. There were 99,441 customers for the 3-year period in review. In terms of high Customer density, the top three locations are Sao Paulo, Rio de Janeiro, and Minas Gerais
@@ -292,9 +198,3 @@ Loyalty programs such as special discounts for repeat customers and free shippin
 
 The high revenue & high profit margin suggests that the business has established a profitable online venture. They should consider investing in new products and services, expanding into new markets. This will drive new customer acquisition and ensure Olist stays ahead in the E-commerce business in Brazil.
 
-Conclusion
-By responding to the business questions, I have achieved the goal of helping Olist gain better insights into their e-commerce platform and know how to optimize available opportunities for growth.
-
-Also, working on this dataset expounded my knowledge on e-commerce business metrics, and helped me improve my skills in Power BI DAX and Data modelling. I hope to build a dashboard from this report and provide an accessible link for interaction with the visuals soon.
-
-Your candid comments, constructive criticisms and feedbacks are anticipated.
