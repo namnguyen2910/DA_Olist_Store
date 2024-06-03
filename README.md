@@ -51,22 +51,15 @@ CALCULATE(
       olist_orders_dataset[order_status] = "delivered"
 )
 ```
+```
+Total Orders = COUNT(olist_orders_dataset[order_id])
+```
+- Doanh thu cho các đơn hàng giao thành công từ 9/2016 - 8/2019 là R$15,422,461.77.
+- Doanh thu tăng liên tục trong 3 năm, đặc biệt tăng trưởng mạnh mẽ vào giữa năm 2016 và 2017. So sánh doanh thu theo tháng thấy được doanh thu sụt giảm mạnh vào tháng 9, do chỉ có số liệu bán hàng từ 10/2026 - 8/2018 và chỉ có duy nhất số liệu bán hàng tháng 9/2019. Xét doanh thu theo ngày thấy sự tăng đột ngột về đơn hàng và doanh thu vào thứ 6 ngày 24/11/2017 do có khuyến mại lớn của ngày Back Friday
+  
 
 
-
-
-Drilling down to the Months, the trend of revenue increase over time is still observed, but with a sharp dip in the month of September. Hmmm! 🤔 what would have been the cause of this dip? To, check this, I drilled down further to dates and observed that most of the sales record available occurred from 3rd October 2016 to 29th August 2018, hence the September record is mostly for one year -2017. Also, the analysis at the date level, also presented a sharp increase in revenue on 24th November 2017, which I discovered was a Black Friday - A day that is characterized by sales of products at highly discounted rates. This may have encouraged the large purchases made by customers on the store on that day.
-
-
-
-Let’s now evaluate the orders placed, perhaps a similar trend occurred on Black Friday.
-
-2: How many orders were placed on Olist, and how does this vary by month or season?
-A total of 99,441 orders were placed on the Olist e-commerce store, of which 96,478 were delivered, and thus contributed to the revenue.
-
-
-
-Looking through the months and years, I observed a trend of increase in orders over time as was seen in the evaluation of the Total revenue over time. The highest number of successful orders (7289) was placed in November 2017. This would be as a result of the Black Friday Effect on 24th November 2017.
+- Số lượng đơn hàng đã giao thành công là 96.478 trên tổng số 99.941 đơn hàng đã được đặt. Tương tự như doanh thu bán hàng, ngày 24/11/2017 cũng có số lượng đơn đặt hàng cao nhất.
 
 
 
