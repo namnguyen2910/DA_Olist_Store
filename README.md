@@ -22,7 +22,8 @@
   - Giá trị trung bình của đơn hàng theo danh mục sản phẩm 
   - Đánh giá mối liên hệ giữa phương thức thanh toán và danh mục sản phẩm/địa lý <br>
 - Phân tích mối quan hệ
-  - Đánh giá mối liên hệ giữa điểm đánh giá sản phẩm trung bình và hiệu suất bán hàng 
+  - Đánh giá mối liên hệ giữa điểm đánh giá sản phẩm trung bình và hiệu suất bán hàng
+  - Mối liên hệ giữa tỷ lệ mua lại hàng và tổng doanh thu
   - Đánh giá mối liên hệ giữa điểm đánh giá sản phẩm trung bình và hiệu suất sản phẩm
   - Đánh giá mối liên hệ giữa tỷ lệ hủy đơn trung bình và hiệu suất của người bán 
   - Đánh giá mối liên hệ giữa điểm đánh giá sản phẩm trung bình và tổng doanh tu<br>
@@ -74,7 +75,7 @@ Gross_Profit_Margin = DIVIDE(
                             olist_orders[order_status]="delivered"),
                                [Total Revenue])
 ```
-- Sản phẩm có biên độ lợi nhuận gộp cao nhất là Computers với 95.71%, tiếp the là Small_Appliances_Home_Oven_And_Coffee (94.56%), Portable_kitchen_and_food_preparators (93.04%).
+- Sản phẩm có biên độ lợi nhuận gộp cao nhất là Computers với 95.71%, tiếp theo là Small_Appliances_Home_Oven_And_Coffee (94.56%), Portable_kitchen_and_food_preparators (93.04%).
   ![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/Profit_margin.png)
 
 *Q4. Đánh giá mối liên hệ giữa giá trị trung bình của đơn hàng theo danh mục sản phẩm và phương thức thanh toán <br>
@@ -108,13 +109,22 @@ Average Rating = AVERAGE('olist_order_reviews_dataset'[review_score])
 ```
 ![Ảnh]([https://github.com/namnguyen2910/DA_Olist_Store](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/seller%20rating%20-%20sale%20performance.png)
 - Kết quả cho thấy rằng những người bán có đánh giá cao có xu hướng đạt được kết quả bán hàng cao hơn so với những người có đánh giá thấp hơn, với người bán hàng có hiệu suất cao nhất có đánh giá trung bình là 4,12.
-  
 
-6: What is the distribution of seller ratings on Olist, and how does this impact sales performance?
-Now we know how many of the Olist sellers are active, we will now evaluate how customers rate them and the impact on their performance. To do this, I created a calculated measure to get the Average customer rating from the review scores. The DAX measure is shown below:
+*Q7. Mối liên hệ giữa tỷ lệ mua lại hàng và tổng doanh thu
+- Từ Q6 ta thấy được có trên 50% tỷ lệ người bán được đánh giá khá cao. Vậy tỷ lệ người mua lại hàng chiếm bao nhiêu % và đóng góp vào tổng doanh thu là bao nhiêu? Trước hết tạo ra 1 cột để lọc các đơn hàng được tính là đơn hàng mua lại:
 
-Average Rating = AVERAGE('olist_order_reviews'[review_score])
-The sales performance was then evaluated using the total revenue per seller and average rating. The resulting visual shows that Sellers with high ratings tend to have higher sales outcome than those with lower ratings, with the highest performing seller having an average rating of 4.12.
+```
+Repeat_Purchases = CALCULATE(
+                      IF(COUNT('olist_orders_dataset'[order_id])>1,1,0),
+                          ALLEXCEPT(olist_customers_dataset,olist_customers_dataset[customer_unique_id]))
+```
+- Nếu có 1 khách hàng có order_id >1 thì nó trả về 1, chỉ ra rằng khách hàng đã thực hiện mua hàng lặp lại. Ngược lại, nó trả về 0, chỉ ra rằng khách hàng chỉ đã thực hiện một đơn hàng. Sau đó, tôi đã tạo một biểu thức tính để có được tổng số lượng khách hàng đã mua hàng lặp lại, tức là các khách hàng mà số lượng 'order_id' trong bảng olist_orders trả về 1. Sau đó tính tổng lượng khách hàng là khách hàng mua lại bằng công thức DAX :
+```
+Repeat Purchase Customers = CALCULATE( 
+                                DISTINCTCOUNT(olist_customers_dataset[customer_unique_id]),
+                                   olist_orders_dataset[Repeat_Purchases] = 1,
+                                       olist_orders_dataset[order_status] = "Delivered")
+```
 
 
 
