@@ -17,7 +17,7 @@
 - Tổng quan doanh thu
   - Tổng số doanh thu và đơn đặt hàng theo thời gian
   - Các danh mục sản phẩm được bán chạy nhất theo số lượng và doanh thu
-  - Danh mục sản phẩm nào có lợi nhuận gộp cao nhất <br>
+  - Danh mục sản phẩm có lợi nhuận gộp cao nhất <br>
 - Đơn hàng và thanh toán
   - Giá trị trung bình của đơn hàng theo danh mục sản phẩm 
   - Đánh giá mối liên hệ giữa phương thức thanh toán và danh mục sản phẩm/địa lý <br>
@@ -43,7 +43,8 @@
 ![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/Data%20Model.png)
 
 7. Phân tích dữ liệu với Power BI <br>
-Q1.Tổng số doanh thu và đơn đặt hàng theo thời gian
+
+**Q1. Tổng số doanh thu và đơn đặt hàng theo thời gian
 ```
 Total Revenue = 
 CALCULATE(
@@ -61,11 +62,11 @@ Total Orders = COUNT(olist_orders_dataset[order_id])
 - Số lượng đơn hàng đã giao thành công là 96.478 trên tổng số 99.941 đơn hàng đã được đặt. Tương tự như doanh thu bán hàng, ngày 24/11/2017 cũng có số lượng đơn đặt hàng cao nhất.
 ![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/Total_order_by_time.png)
 
-Q2: Các danh mục sản phẩm được bán chạy nhất theo số lượng và doanh thu
+**Q2. Các danh mục sản phẩm được bán chạy nhất theo số lượng và doanh thu
 - Phân tích mức độ về mức độ phổ biến theo top 20, danh mục sản phẩm được ưa chuộng nhất là Bed_Bath_Table có 9.417 đơn đặt hàng, tiếp theo Health_Beauty (8.836) và Sports_Leisure (7.720). Tuy nhiên Health_Beauty có doanh thu bán hàng cao nhất là R$1.419.509,89, tiếp theo là Watches_Gifts category (R$1,269,684.96) và Bed_Bath_Table (R$1,249,411.56). Điều này chứng tỏ sản phẩm được bán chạy nhất không đồng nghĩa với mang lại doanh thu lớn nhất
 ![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/Product_popularity.png)
 
-Q3. Danh mục sản phẩm nào có lợi nhuận gộp cao nhất <br>
+**Q3. Danh mục sản phẩm có lợi nhuận gộp cao nhất <br>
 - Vì tập dữ liệu có sẵn không có giá vốn, do đó chúng ta không thể tính toán biên lợi nhuận, chỉ có thể kiểm tra biên lợi nhuận gộp. Công thức DAX tính toán biên lợi nhuận gộp:
 ```
 Gross_Profit_Margin = DIVIDE(
@@ -76,7 +77,7 @@ Gross_Profit_Margin = DIVIDE(
 - Sản phẩm có biên độ lợi nhuận gộp cao nhất là Computers với 95.71%, tiếp the là Small_Appliances_Home_Oven_And_Coffee (94.56%), Portable_kitchen_and_food_preparators (93.04%).
   ![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/Profit_margin.png)
 
-Q4. Đánh giá mối liên hệ giữa giá trị trung bình của đơn hàng theo danh mục sản phẩm và phương thức thanh toán <br>
+**Q4. Đánh giá mối liên hệ giữa giá trị trung bình của đơn hàng theo danh mục sản phẩm và phương thức thanh toán <br>
 - Từ Q2 ta thấy không phải sản phẩm phổ biến nhất sẽ mang lại doanh thu cao nhất, chúng ta sẽ đi sâu hơn bằng cách đánh giá qua giá trị trung bình (AOV) của đơn hàng và mối liên hệ của AOV với danh mục sản phẩm cũng như là phương thức thanh toán. Công thức DAX tính toán AOV:
 
 ```
@@ -89,7 +90,7 @@ Average Order Value =
 ![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/AOV.png)
 - Giá trị đơn hàng trung bình là R$159.85. Xét theo các danh mục sản phẩm và loại thanh toán, chúng ta thấy rằng danh mục sản phẩm có giá trị đơn hàng trung bình cao nhất là Computers, trong khi Credit card là loại thanh toán có giá trị đơn hàng trung bình cao nhất. Điều này phản ánh sự ưa thích và sự tin tưởng của khách hàng vào những loại sản phẩm và phương thức thanh toán này, hoặc có thể là kết quả của các chính sách giảm giá, ưu đãi đặc biệt hoặc khuyến mãi đối với những mặt hàng hoặc phương thức thanh toán này.
   
-Q5. Đánh giá mối liên hệ giữa phương thức thanh toán và danh mục sản phẩm/địa lý <br>
+**Q5. Đánh giá mối liên hệ giữa phương thức thanh toán và danh mục sản phẩm/địa lý <br>
 - Tử Q4 ta thấy phương thức thanh toán Credit Card là loại thanh toán có giá trị đơn hàng trung bình cao nhất. Vậy liệu phương thức thanh toán này có phổ biến với toàn bộ các đơn hàng không?
 ![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/Payment_popularity.png)
 ![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/Payment_type%20by.%20png.png)
@@ -97,53 +98,6 @@ Q5. Đánh giá mối liên hệ giữa phương thức thanh toán và danh m�
   - Credit Card là phương thức thanh toán phổ biến nhất, ít phổ biến nhất là Debit Card.
   - Credit Card và Bolero đều được sử dụng để mua 72 danh mục sản phẩm.
   - Các bang sử dụng phương thức Credit Card để mua hàng nhiều nhất là Minas Gerais, Rio de Janeiro, và Sao Paulo. Điều này phản ánh sự phổ biến của hình thức thanh toán này ở các vùng đô thị lớn của Brazil.
-
-
-
-
-
-
-
-
-
-
-3: What are the most popular product categories on Olist, and how do their sales volumes
-compare to each other? Having observed the trend in customer orders and revenue generated, it is important to consider the products advertised on the Olist platform for sale – Which of these product categories are popular? Does popularity affect their sales volume? In terms of popularity, the most popular product category is the Bed_Bath_Table having 9,417 orders, with the next two in the top 3 popular product categories being Health_Beauty (8,836 orders) and Sports_Leisure (7,720 orders).
-
-
-
-However, in terms of sales volume, the Health_Beauty product category has the highest sales volume of R$1,419,509.89, followed by Watches_Gifts category (R$1,269,684.96) and Bed_Bath_Table (R$1,249,411.56) being the 3rd in highest sales volume.
-
-4: What is the average order value (AOV) on Olist, and how does this vary by product category or payment method?
-From the preceding visual, we see that the most popular product did not have the highest sales volume, hence, we probe further to evaluate the average monetary value of each order placed by the Olist customers, that is, the Average order value (AOV) and their variation across the product categories & payment methods used by the customers.
-
-The average order value on the Olist store is R$159.85. This was gotten by dividing the Total revenue by total number of orders that are delivered using the DAX calculated measure below:
-
-Average Order Value = 
-                  DIVIDE ([Total Revenue], 
-                      CALCULATE(COUNTROWS('olist_orders'), 
-                         olist_orders[order_status] IN {"Delivered"})
-)
-
-
-Exploring the AOV across the product categories and payment types, we see that the product category with the highest average order value is Computers, while Credit card is the payment type that has the highest Average order value.
-
-
-
-5: How many sellers are active on Olist, and how does this number change over time?
-As a platform that connects merchants to customers, it is important to know how many of the merchants / sellers on the platform have been active over time. The metric I used is, A seller is said to be active if s/he has made at least a successful sale within a 30-day period. A successful sale is taken to be orders that have been delivered to the customer. The measure below was used to compute the Active sellers.
-
-Active_Sellers = CALCULATE(
-                     DISTINCTCOUNT('olist_order_items'[seller_id]),
-                      	 'olist_orders'[order_status] = "delivered",
-                          		'olist_orders'[order_purchase_date] >= MIN('olist_orders'[order_purchase_date]) - 30,
-   	                          	'olist_orders'[order_purchase_date] <= MAX('olist_orders'[order_purchase_date])
-                   )
-This measure counts the distinct number of seller IDs in the 'olist_orders_items' table where the order status is "delivered" and the order purchase date falls within the last 30 days from the maximum order purchase date. This gives the number of active sellers as 2,970.
-
-
-
-Going further, I evaluated the variation of Active sellers on the platform over time and observed that there has been a consistent increase in active sellers across the years and months.
 
 
 
