@@ -18,10 +18,8 @@
   - Tổng số doanh thu và đơn đặt hàng theo thời gian
   - Các danh mục sản phẩm được bán chạy nhất theo số lượng và doanh thu
   - Danh mục sản phẩm có lợi nhuận gộp cao nhất <br>
-- Đơn hàng và thanh toán
   - Giá trị trung bình của đơn hàng theo danh mục sản phẩm 
   - Mối liên hệ giữa phương thức thanh toán và danh mục sản phẩm/địa lý <br>
-- Phân tích mối quan hệ
   - Mối liên hệ giữa điểm đánh giá người bán trung bình và hiệu suất bán hàng
   - Mối liên hệ giữa tỷ lệ mua lại hàng và tổng doanh thu
   - Mối liên hệ giữa điểm đánh giá sản phẩm trung bình và hiệu suất bán hàng
@@ -29,7 +27,11 @@
   - Vị trí địa lý có lượng khách hàng lớn và tỷ lệ khách hàng mua lại hàng 
 
 5. Làm sạch dữ liệu
-- Tập dữ liệu được giải nén, làm sạch và import vào Power BI. Chi tiết các bước xem tại ĐÂY.
+- Tập dữ liệu được giải nén, làm sạch và import vào Power BI. Bao gồm:
+  - Xoá bỏ các bản ghi được trùng lặp, xoá bỏ các khoảng trắng ở các trường.
+  - Sửa tên In hoa cho các địa danh, merge bảng viết tắt các state
+  - Chuyển đổi các định dạng phù hợp với dữ liệu.
+  - Phân tách lấy ngày giờ cho các trường thời gian. Xoá bỏ cột không cần thiết.
 	
 6. Mô hình dữ liệu
 - Dữ liệu sau khi được chuẩn hoá được thêm vào lược đồ hình sao (Star schema). Xem chi tiết ở hình ảnh dưới
@@ -159,38 +161,18 @@ Customer Retention Rate (%) =
   - Biểu đồ cho thấy tỉ lệ giữ chân khách hàng, vị trí có tỷ lệ cao nhất là Acre, mặc dù nằm trong ba vị trí cuối cùng với mật độ khách hàng ít nhất. Hai vị trí giữ chân khách hàng cao tiếp theo là Rondonia và Mato Grosso.
 
 8. Insights
-‌Olist E-commerce Store generated a total revenue of 15.42 million Brazilian real(R$15,422,461.77) within the 3-year period in review. The high revenue may be attributed to presence of a wide range of product categories, competitive pricing, a user-friendly platform that attracts and retains customers, etc.
+- Tổng doanh thu của Olist E-commerce Store trong khoảng thời gian 3 năm (từ tháng 10/2016 đến tháng 8/2018) đạt R$ 15,422,461.77
+- Trong năm 2017, tháng 11 chiếm 16,66% tổng doanh thu của năm. Đáng chú ý, doanh thu từ ngày Black Friday đạt R$175,250.94 R$, chiếm 15,19% tổng doanh thu của tháng 11. Sự phổ biến của ngày khuyến mại Black Friday tại Brazil đã góp phần tăng doanh thu.
+- Tỷ lệ giao hàng thành công đạt ~97% cho tất cả các đơn hàng được đặt, cho thấy Olist có hệ thống vận chuyển và xử lý đơn hàng đáng tin cậy, giúp khách hàng nhận được hàng đúng hẹn.
+- Các danh mục sản phẩm có số lượng đơn hàng cao nhất không luôn tạo ra doanh thu cao nhất. Điều này có thể phản ánh mức giá và chất lượng của các sản phẩm.
+- Giá trị trung bình của mỗi đơn hàng (AOV) trên nền tảng Olist là 159,85 R$. AOV cao có thể cho thấy khách hàng đang mua các sản phẩm có giá cao hơn.
+- Khách hàng thực hiện mua lại tạo ra 5,84% tổng doanh thu, cho thấy Olist có một cơ sở khách hàng trung thành.
+- Credit Card là phương thức thanh toán chính, tiếp theo là Boletos, trong khi Debit Card ít được sử dụng nhất. Sự ưa thích này có thể phản ánh sự phổ biến của thẻ tín dụng và tiện ích an toàn của việc thanh toán bằng thẻ.
+- Các sản phẩm và Người bán có hiệu suất bán hàng cao nhất thường có điểm đánh giá cao hơn trung bình (4,07). Tuy nhiên, có điểm đánh giá cao nhất (5) không đảm bảo hiệu suất bán hàng cao cho hầu hết các sản phẩm và người bán. Điều này có thể phản ánh sự ưa thích của khách hàng đối với sản phẩm giá thấp.
+- Biên độ lợi nhuận gộp đạt 85,73%. Danh mục sản phẩm Computers, có giá trị đơn hàng cao nhất, cũng tạo ra biên độ lợi nhuận gộp cao nhất. Điều này có thể là do sản phẩm có giá cao hơn hoặc lợi nhuận gộp tốt hơn.
+- Sao Paulo là địa điểm có mật độ Khách hàng cao nhất, trong khi Acre có tỷ lệ giữ chân Khách hàng cao nhất. Tuy nhiên, ba địa điểm có mật độ Khách hàng cao nhất cũng có tỷ lệ giữ chân Khách hàng trên trung bình (3,0).
 
-In 2017, ‌16.66% of the total revenue was generated in November, with the Black Friday sales (R$175,250.94) accounting for 15.19% of the total revenue generated in November 2017 (R$1,153,528.05). The popularity of the "Black Friday" sales in Brazil will have enhanced this outcome.
-
-‌The platform recorded order delivery success rate of 97% for all placed orders.This is a pointer that Olist has a well-established logistics and Order fulfillment system in place, which ensures that customers receive their orders reliably and on time.
-
-‌The products categories with the highest Quantity of orders didn't always generate higher sales volume. This may be due to the price and quality of the products.
-
-‌The Average order value (AOV) for the Olist platform is R$159.85 . This high AOV suggests that customers are buying more expensive products.
-
-The Platform has ‌96% active sellers, which suggests that Olist provides a favorable platform for merchants/sellers to conduct their business, resulting in a consistent increase in the number of active sellers over time.
-
-Customers that made repeat purchases generated ‌5.84% of the total revenue. The presence of repeat purchases indicates that Olist has a loyal customer base.
-
-‌Credit Cards are the major type of payment used by Olist Customers, followed by Boletos while the least used method is Debit card. This may be due to credit cards being more widely accepted than debit cards. This preferrence may also be due to the convenience and security offered by credit card payments.
-
-‌Products and Sellers with the highest sales performance had ratings that were above average(4.07). However, having the highest rating band of 5, didn't give rise to high sales performance for most products and sellers. This could be an indicator of Customer preferance for low priced goods.
-
-The Average Order Cancellation rate is 0.63% - which can be indicative of high Customer Satisfaction. However, the Olist e-commerce platform lost R$143,255.60 due to cancelled Orders. Customer ratings and minimum price of Sellers' products were found to be key influencers of the Average Order Cancellation rate, which in turn impacts the number of orders placed and revenue generated.
-
-‌The product categories' sales trend are competitive as a new category always takes the lead as "Top selling product" each year.
-
-The Gross profit margin is 85.73%. The product category, Computers, which has the highest order value also generated the highest Gross profit margin. This is likely due to higher-priced products or better profit margins on items in the category.
-
-‌Geolocation with the highest Customer density is Sao Paulo while the Geolocation with the highest Customer retention rate is Acre. However, the top 3 geolocations with high Customer densities also had retention rates above average(3.0).
-
-Recommendations:
-Olist should implement a seasonal/quarterly promotional events like the "Black Friday" sales to drive customer engagement, high product purchase and increased revenue.
-
-They should strive to maintain high product quality and competitive pricing in order to minimize cancellations, maximize customer satisfaction, and boost revenue.
-
-Loyalty programs such as special discounts for repeat customers and free shipping to targeted locations like Sao Paulo and Acre can be implemented to drive increase in repeat purchases, increase in customer retention, and acquisition of new Customers.
-
-The high revenue & high profit margin suggests that the business has established a profitable online venture. They should consider investing in new products and services, expanding into new markets. This will drive new customer acquisition and ensure Olist stays ahead in the E-commerce business in Brazil.
-
+9. Đề xuất 
+- Tiển khai thêm nhiều sự kiện khuyến mãi theo định kỳ như "Black Friday" để tăng sự tương tác của khách hàng, đẩy mạnh mua sắm sản phẩm và tăng doanh thu.
+- Chương trình iảm giá đặc biệt cho khách hàng quay lại và miễn phí vận chuyển đến các địa điểm như Sao Paulo và Acre có thể được triển khai để tăng mua sắm lặp lại, tăng tỷ lệ giữ chân của khách hàng và thu hút khách hàng mới.
+- Doanh thu cao và biên lợi nhuận cao cho thấy Olist đã xây dựng một dự án thành công. Họ nên xem xét đầu tư vào các sản phẩm và dịch vụ mới, mở rộng ra các thị trường mới.
