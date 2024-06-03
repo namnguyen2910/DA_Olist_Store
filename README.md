@@ -63,7 +63,7 @@ Total Orders = COUNT(olist_orders_dataset[order_id])
 
 Q2: Các loại sản phẩm được bán chạy nhất theo số lượng và doanh thu
 - Phân tích mức độ về mức độ phổ biến theo top 20, loại sản phẩm được ưa chuộng nhất là Bed_Bath_Table có 9.417 đơn đặt hàng, tiếp theo Health_Beauty (8.836) và Sports_Leisure (7.720). Tuy nhiên Health_Beauty có doanh thu bán hàng cao nhất là R$1.419.509,89, tiếp theo làWatches_Gifts category (R$1,269,684.96) and Bed_Bath_Table (R$1,249,411.56). Điều này chứng tỏ sản phẩm được bán chạy nhất không đồng nghĩa với mang lại doanh thu lớn nhất
-![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/Total_order_by_time.png)
+![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/Product_popularity.png)
 
 Tuy nhiên, xét về doanh số bán hàng, danh mục sản phẩm Health_Beauty có doanh số bán hàng cao nhất là 1.419.509,89 R$, tiếp theo là danh mục Đồng hồ_Quà tặng (1.269.684,96 R$) và Bed_Bath_Table (1.249.411,56 R$) đứng thứ 3 về doanh số cao nhất.
 
