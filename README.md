@@ -1,4 +1,4 @@
-1. Giới thiệu<br> 
+![image](https://github.com/namnguyen2910/DA_Olist_Store/assets/171365487/be388a33-30f0-4881-9014-56040ef203bd)1. Giới thiệu<br> 
 - Dự án cá nhận về Khám phá Dữ liệu (EDA) và trực quan hóa về một nền tảng thương mại điện tử tại Brazil. Dự án cá nhận được xử lý hoàn toàn bằng Power BI.
 
 2. Các kĩ năng được sử dụng
@@ -60,7 +60,7 @@ Total Orders = COUNT(olist_orders_dataset[order_id])
 
 
 - Số lượng đơn hàng đã giao thành công là 96.478 trên tổng số 99.941 đơn hàng đã được đặt. Tương tự như doanh thu bán hàng, ngày 24/11/2017 cũng có số lượng đơn đặt hàng cao nhất.
-
+![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/Total_order_by_time.png)
 
 
 3: What are the most popular product categories on Olist, and how do their sales volumes
