@@ -1,4 +1,4 @@
-![image](https://github.com/namnguyen2910/DA_Olist_Store/assets/171365487/be388a33-30f0-4881-9014-56040ef203bd)1. Giới thiệu<br> 
+1. Giới thiệu<br> 
 - Dự án cá nhận về Khám phá Dữ liệu (EDA) và trực quan hóa về một nền tảng thương mại điện tử tại Brazil. Dự án cá nhận được xử lý hoàn toàn bằng Power BI.
 
 2. Các kĩ năng được sử dụng
@@ -56,8 +56,7 @@ Total Orders = COUNT(olist_orders_dataset[order_id])
 ```
 - Doanh thu cho các đơn hàng giao thành công từ 9/2016 - 8/2019 là R$15,422,461.77.
 - Doanh thu tăng liên tục trong 3 năm, đặc biệt tăng trưởng mạnh mẽ vào giữa năm 2016 và 2017. So sánh doanh thu theo tháng thấy được doanh thu sụt giảm mạnh vào tháng 9, do chỉ có số liệu bán hàng từ 10/2026 - 8/2018 và chỉ có duy nhất số liệu bán hàng tháng 9/2019. Xét doanh thu theo ngày thấy sự tăng đột ngột về đơn hàng và doanh thu vào thứ 6 ngày 24/11/2017 do có khuyến mại lớn của ngày Back Friday
-  
-
+![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/Total_revenue_by_time.png)
 
 - Số lượng đơn hàng đã giao thành công là 96.478 trên tổng số 99.941 đơn hàng đã được đặt. Tương tự như doanh thu bán hàng, ngày 24/11/2017 cũng có số lượng đơn đặt hàng cao nhất.
 ![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/Total_order_by_time.png)
