@@ -125,7 +125,8 @@ Repeat Purchase Customers = CALCULATE(
                                    olist_orders_dataset[Repeat_Purchases] = 1,
                                        olist_orders_dataset[order_status] = "Delivered")
 ```
-
+![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/Repeat%20Purchase.png)
+- Tỷ lệ mua hàng trở lại ~5.84% (R$900,727.35).
 
 
 7: How many customers have made repeat purchases on Olist, and what percentage of total sales do they account for?
