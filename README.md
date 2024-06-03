@@ -40,7 +40,7 @@
   - Factless table: Olist_Orders : Chứa ngày để theo dõi trạng thái bán hàng/mua hàng và không có bất kỳ số liệu
   - Dimesion table: list_customers, Olist_geolocation, Olist_order_payments, Olist_order_reviews, Olist_products, Olist_sellers, Date_Table (bảng mới được tạo)
 
-![Ảnh](https://github.com/Analyst-Joan/Olist_Store_Exploratory_Data_Analysis/blob/main/Prod_rate_sales_perf.PNG)
+![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/Data%20Model.png)
 
 7. Phân tích dữ liệu với Power BI
 Q1.Tổng số doanh thu và đơn đặt hàng theo thời gian
