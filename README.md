@@ -92,7 +92,9 @@ Average Order Value =
   
 **Q5. Đánh giá mối liên hệ giữa phương thức thanh toán và danh mục sản phẩm/địa lý <br>
 - Tử Q4 ta thấy phương thức thanh toán Credit Card là loại thanh toán có giá trị đơn hàng trung bình cao nhất. Vậy liệu phương thức thanh toán này có phổ biến với toàn bộ các đơn hàng không?
+
 ![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/Payment_popularity.png)
+
 ![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/Payment_type%20by.%20png.png)
 - Từ các biểu đồ tên ta thấy được:
   - Credit Card là phương thức thanh toán phổ biến nhất, ít phổ biến nhất là Debit Card.
