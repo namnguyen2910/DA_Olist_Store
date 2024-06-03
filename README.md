@@ -139,30 +139,26 @@ AVERAGEX(
 ![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/product%20rating%20-%20sale%20performance.png)
 - Điểm trung bình sản phẩm là 4.07, và sản phẩm đạt doanh thu lớn nhất có điểm là 4.21. Với điểm đánh giá cao, sản phẩm có khả năng thu hút và giữ chân khách hàng tốt hơn từ đó làm tăng doanh thu bán hàng.
 
-*Q8. Mối liên hệ giữa điểm đánh giá sản phẩm và doanh thu tương ứng
+*Q9. Mối liên hệ giữa điểm đánh giá sản phẩm và doanh thu tương ứng
 - Từ Q6/Q8, ta thấy sản phẩm/người bán có doanh thu cao nhất đèu có điểm trung bình >4. Vậy có phải điểm trung bình cao đồng nghĩa với doanh thu cao không?
   ![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/customer%20rating%20-%20order%20-%20revenue.png)
 - Biểu đồ cho ta thấy được  các sản phẩm có điểm đánh giá là 2.0 có doanh thu ít hơn so với các sản phẩm có điểm đánh giá là 1.0. Mặt khác số lượng sản phẩm bán ra có điểm đánh giá 1.0 nhiều hơn khoảng 3 lần so với số lượng sản phẩm có điểm đánh giá 2.0. Do đó, chúng ta có thể nói rằng khi điểm đánh giá tăng, tổng doanh thu cũng tăng.
 
-
-
-
-15: Geolocation having high customer density. Calculate customer retention rate according to geolocations
-Finally, we will evaluate the spread of Olist customer base in terms of location. There were 99,441 customers for the 3-year period in review. In terms of high Customer density, the top three locations are Sao Paulo, Rio de Janeiro, and Minas Gerais
-
-
-
-But does High Customer density equate high Customer retention rate? To check for this, the overall Customer retention rate was computed using the DAX measure below. The results was 3.0
-
-Customer Retention Rate % = 
-                          DIVIDE('olist_customers'[Repeat_purchase_customers],
-                            COUNTROWS('olist_customers')) 
+*Q10. Mối liên hệ giữa mật độ khách hàng theo vị trí địa lý và tỷ lệ giữ chân khách hàng
+- Mật độ khách hàng theo địa lý:
+![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/Customer%20Density.png)
+  - Biểu đồ cho thấy mật độ khách hàng cao nhất là Sao Paulo, Rio de Janeiro và Minas Gerais.
+- Để làm rõ hơn việc mật độ khách hàng cao có đồng nghĩa với tỷ lệ giữ chân khách hang hay không, ta sẽ tính tỷ lệ giữ chân khách hàng bằng DAX:
+```
+Customer Retention Rate (%) = 
+                          DIVIDE('olist_orders_dataset'[Repeat Purchase Customers],
+                            COUNTROWS('olist_customers_dataset')) 
                               * 100
-Exploring further, we see that in terms of customer retention, we have the location with the highest Customer retention rate to be Acre, despite being among the last 3 location with the least customer density. The next two high customer retention locations are Rondonia and Mato Grosso.
+```
+![Ảnh](https://github.com/namnguyen2910/DA_Olist_Store/blob/main/Rentention.png)
+  - Biểu đồ cho thấy tỉ lệ giữ chân khách hàng, vị trí có tỷ lệ cao nhất là Acre, mặc dù nằm trong ba vị trí cuối cùng với mật độ khách hàng ít nhất. Hai vị trí giữ chân khách hàng cao tiếp theo là Rondonia và Mato Grosso.
 
-
-
-Key Insights
+8. Insights
 ‌Olist E-commerce Store generated a total revenue of 15.42 million Brazilian real(R$15,422,461.77) within the 3-year period in review. The high revenue may be attributed to presence of a wide range of product categories, competitive pricing, a user-friendly platform that attracts and retains customers, etc.
 
 In 2017, ‌16.66% of the total revenue was generated in November, with the Black Friday sales (R$175,250.94) accounting for 15.19% of the total revenue generated in November 2017 (R$1,153,528.05). The popularity of the "Black Friday" sales in Brazil will have enhanced this outcome.
